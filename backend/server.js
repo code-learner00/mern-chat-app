@@ -12,15 +12,9 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-
-// app.get("/", (req, res) => {
-//   res.send("API Running!");
-// });
-
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
-
 
 const __dirname1 = path.resolve();
 
@@ -36,12 +30,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-
 app.use(notFound);
 app.use(errorHandler);
-
 const PORT = process.env.PORT;
-
 const server = app.listen(
   PORT,
   console.log(`Server running on PORT ${PORT}...`.yellow.bold)
